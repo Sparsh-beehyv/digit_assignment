@@ -1,0 +1,78 @@
+serviceMaps:
+  serviceName: adv-registration
+  mappings:
+    - version: 1.0
+      description: Manage advocate registration persistence
+      fromTopic: save-adv-application
+      isTransaction: true
+      queryMaps:
+        - query: insert into eg_adv_registration (id, tenantId, applicationId, state, district, city, firstName, middleName, lastName, phone, createdBy, lastModifiedBy, createdTime, lastModifiedTime) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+          basePath: AdvocateRegistrationApplication.*
+          jsonMaps:
+            - jsonPath: $.AdvocateRegistrationApplication.*.id
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.tenantId
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.applicationId
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.state
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.district
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.city
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.firstName
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.middleName
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.lastName
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.phone
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.createdBy
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.lastModifiedBy
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.createdTime
+
+            - jsonPath: $.AdvocateRegistrationApplication.*.lastModifiedTime
+
+        - query: insert into eg_adv_details (id, advocateId, barRegistrationNum, barRegistrationDocUrl, designation, createdBy, lastModifiedBy, createdTime, lastModifiedTime) values (?,?,?,?,?,?,?,?,?);
+          basePath: AdvocateDetails.*
+          jsonMaps:
+              - jsonPath: $.AdvocateDetails.*.id
+
+              - jsonPath: $.AdvocateDetails.*.advocateId
+
+              - jsonPath: $.AdvocateDetails.*.barRegistrationNum
+
+              - jsonPath: $.AdvocateDetails.*.barRegistrationDocUrl
+
+              - jsonPath: $.AdvocateDetails.*.designation
+
+              - jsonPath: $.AdvocateDetails.*.createdBy
+
+              - jsonPath: $.AdvocateDetails.*.lastModifiedBy
+
+              - jsonPath: $.AdvocateDetails.*.createdTime
+
+              - jsonPath: $.AdvocateDetails.*.lastModifiedTime
+
+
+    - version: 1.0
+      description: manage advocate registration updates
+      fromTopic: update-adv-application
+      isTransaction: true
+      queryMaps:
+          - query: update eg_adv_details set barRegistrationNum = ?, barRegistrationDocUrl = ?, designation = ?, lastModifiedBy = ?, lastModifiedTime = ? where id = ?;
+            basePath: AdvocateDetails.*
+            jsonMaps:
+              - jsonPath: $.AdvocateDetails.*.barRegistrationNum
+
+              - jsonPath: $.AdvocateDetails.*.barRegistrationDocUrl
+
+              - jsonPath: $.AdvocateDetails.*.designation
+
+              - jsonPath: $.AdvocateDetails.*.lastModifiedBy
+
+              - jsonPath: $.AdvocateDetails.*.lastModifiedTime

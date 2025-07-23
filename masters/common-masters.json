@@ -1,0 +1,16 @@
+{
+  "tenant": "pb",
+  "module": "Advocate-Registration",
+  "userType": [
+    {
+      "id": "ADVOCATE",
+      "name": "Advocate",
+      "isActive": true
+    },
+    {
+      "id": "ADVOCATE_CLERK",
+      "name": "Advocate Clerk",
+      "isActive": true
+    }
+  ]
+}

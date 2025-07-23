@@ -1,0 +1,46 @@
+{
+  "tenant": "pb",
+  "module": "ACCESSCONTROL-ACTIONS",
+  "actions": [
+    {
+      "id": 1,
+      "name": "REGISTER",
+      "url": "/app/advocate/register.html",
+      "displayName": "Start Application",
+      "orderNumber": 1,
+      "enabled": true,
+      "serviceCode": "Advocate Registration",
+      "code": "null"
+    },
+    {
+      "id": 2,
+      "name": "List Applications",
+      "url": "/app/advocate/fetch-application.html",
+      "displayName": "Fetch Pending Applications",
+      "orderNumber": 3,
+      "enabled": true,
+      "serviceCode": "Advocate Registration",
+      "code": "null"
+    },
+    {
+      "id": 3,
+      "name": "Approve",
+      "url": "/app/advocate/application-view.html",
+      "displayName": "Approve Application",
+      "orderNumber": 1,
+      "enabled": true,
+      "serviceCode": "Application Details",
+      "code": "null"
+    },
+    {
+      "id": 4,
+      "name": "Reject",
+      "url": "/app/advocate/application-view.html",
+      "displayName": "Reject Application",
+      "orderNumber": 2,
+      "enabled": true,
+      "serviceCode": "Application Details",
+      "code": "null"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "BusinessServices": [
+    {
+      "tenantId": "pb",
+      "businessService": "ADVR",
+      "business": "adv-registration",
+      "businessServiceSla": 432000000,
+      "states": [
+        {
+          "sla": null,
+          "state": null,
+          "applicationStatus": null,
+          "docUploadRequired": true,
+          "isStartState": true,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "APPLY",
+              "nextState": "APPLIED",
+              "roles": [
+                "ADVOC",
+                "ADVOC_CLERK"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": null,
+          "state": "APPLIED",
+          "applicationStatus": "APPLIED",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "APPROVE",
+              "nextState": "COMPLETED",
+              "roles": [
+                "N_MITRA"
+              ]
+            },
+            {
+              "action": "REJECT",
+              "nextState": "REJECTED",
+              "roles": [
+                "N_MITRA"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": null,
+          "state": "REJECTED",
+          "applicationStatus": "REJECTED",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": null
+        },
+        {
+          "sla": null,
+          "state": "COMPLETED",
+          "applicationStatus": "COMPLETED",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "tenant": "pb",
+  "module": "ACCESSCONTROL-ROLEACTIONS",
+  "roleactions": [
+    {
+      "rolecode": "ADVOCATE",
+      "actionid": 1,
+      "actioncode": "",
+      "tenantId": "pb"
+    },
+    {
+      "rolecode": "NYAY_MITRA",
+      "actionid": 2,
+      "actioncode": "",
+      "tenantId": "pb"
+    },
+    {
+      "rolecode": "NYAY_MITRA",
+      "actionid": 3,
+      "actioncode": "",
+      "tenantId": "pb"
+    },
+    {
+      "rolecode": "NYAY_MITRA",
+      "actionid": 4,
+      "actioncode": "",
+      "tenantId": "pb"
+    }
+  ]
+}

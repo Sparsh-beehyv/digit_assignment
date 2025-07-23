@@ -1,0 +1,26 @@
+{
+  "tenantId": "pb",
+  "moduleName": "ACCESSCONTROL-ROLES",
+  "roles": [
+    {
+      "code": "ADVOCATE",
+      "description": "bar council registered advocate",
+      "name": "Advocate"
+    },
+    {
+      "code": "NYAY_MITRA",
+      "description": "court personnel to help advocates perform actions on the system",
+      "name": "Nyay Mitra"
+    },
+    {
+      "code": "LITIGANT",
+      "description": "party to a case",
+      "name": "Litigant"
+    },
+    {
+      "code": "SYSTEM",
+      "description": "system",
+      "name": "System"
+    }
+  ]
+}
