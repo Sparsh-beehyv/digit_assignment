@@ -1,4 +1,4 @@
-CREATE TABLE eg_adv_registration(
+CREATE TABLE IF NOT EXISTS eg_adv_register(
     id character varying(64),
     firstname character varying(64),
     middleName character varying(64),
@@ -16,7 +16,7 @@ CREATE TABLE eg_adv_registration(
     CONSTRAINT eg_adv_registration PRIMARY KEY (id)
 );
 
-CREATE TABLE eg_adv_details(
+CREATE TABLE IF NOT EXISTS eg_adv_bar_detail(
     id character varying(64),
     registrationId character varying(64),
     barRegistrationNum character varying(128),
@@ -28,6 +28,6 @@ CREATE TABLE eg_adv_details(
     lastModifiedTime bigint,
     CONSTRAINT eg_adv_details PRIMARY KEY (id),
     CONSTRAINT eg_adv_app UNIQUE (registrationId),
-    CONSTRAINT adv_detail_fk FOREIGN KEY (registrationId) references eg_adv_registration (id)
+    CONSTRAINT adv_detail_fk FOREIGN KEY (registrationId) references eg_adv_register (id)
     ON DELETE CASCADE ON UPDATE CASCADE
 );

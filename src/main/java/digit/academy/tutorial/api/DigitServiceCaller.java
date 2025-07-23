@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.egov.tracer.model.ServiceCallException;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @Slf4j
 @RequiredArgsConstructor
+@Component
 public class DigitServiceCaller {
 
     private ObjectMapper mapper;

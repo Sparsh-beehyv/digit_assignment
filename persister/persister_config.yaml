@@ -6,7 +6,7 @@ serviceMaps:
       fromTopic: save-adv-application
       isTransaction: true
       queryMaps:
-        - query: insert into eg_adv_registration (id, tenantId, applicationId, state, district, city, firstName, middleName, lastName, phone, createdBy, lastModifiedBy, createdTime, lastModifiedTime) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+        - query: insert into eg_adv_register (id, tenantId, applicationId, state, district, city, firstName, middleName, lastName, phone, createdBy, lastModifiedBy, createdTime, lastModifiedTime) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);
           basePath: AdvocateRegistrationApplication.*
           jsonMaps:
             - jsonPath: $.AdvocateRegistrationApplication.*.id
@@ -37,26 +37,18 @@ serviceMaps:
 
             - jsonPath: $.AdvocateRegistrationApplication.*.lastModifiedTime
 
-        - query: insert into eg_adv_details (id, advocateId, barRegistrationNum, barRegistrationDocUrl, designation, createdBy, lastModifiedBy, createdTime, lastModifiedTime) values (?,?,?,?,?,?,?,?,?);
+        - query: insert into eg_adv_bar_detail (id, advocateId, barRegistrationNum, barRegistrationDocUrl, designation) values (?,?,?,?,?);
           basePath: AdvocateDetails.*
           jsonMaps:
-              - jsonPath: $.AdvocateDetails.*.id
+              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.id
 
-              - jsonPath: $.AdvocateDetails.*.advocateId
+              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.registrationId
 
-              - jsonPath: $.AdvocateDetails.*.barRegistrationNum
+              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.barRegistrationNum
 
-              - jsonPath: $.AdvocateDetails.*.barRegistrationDocUrl
+              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.barRegistrationDocUrl
 
-              - jsonPath: $.AdvocateDetails.*.designation
-
-              - jsonPath: $.AdvocateDetails.*.createdBy
-
-              - jsonPath: $.AdvocateDetails.*.lastModifiedBy
-
-              - jsonPath: $.AdvocateDetails.*.createdTime
-
-              - jsonPath: $.AdvocateDetails.*.lastModifiedTime
+              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.designation
 
 
     - version: 1.0
@@ -64,7 +56,7 @@ serviceMaps:
       fromTopic: update-adv-application
       isTransaction: true
       queryMaps:
-          - query: update eg_adv_details set barRegistrationNum = ?, barRegistrationDocUrl = ?, designation = ?, lastModifiedBy = ?, lastModifiedTime = ? where id = ?;
+          - query: update eg_adv_bar_detail set barRegistrationNum = ?, barRegistrationDocUrl = ?, designation = ? where id = ?;
             basePath: AdvocateDetails.*
             jsonMaps:
               - jsonPath: $.AdvocateDetails.*.barRegistrationNum
@@ -72,7 +64,3 @@ serviceMaps:
               - jsonPath: $.AdvocateDetails.*.barRegistrationDocUrl
 
               - jsonPath: $.AdvocateDetails.*.designation
-
-              - jsonPath: $.AdvocateDetails.*.lastModifiedBy
-
-              - jsonPath: $.AdvocateDetails.*.lastModifiedTime

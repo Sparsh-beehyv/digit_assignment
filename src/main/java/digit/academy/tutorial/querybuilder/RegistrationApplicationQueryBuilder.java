@@ -9,7 +9,7 @@ public class RegistrationApplicationQueryBuilder {
 
     private static final String BASE_QUERY = "select ar.id, ar.applicationId, ar.firstName, ar.middleName, ar.lastName, ar.state, ar.district, ar.city, ar.phone, ar.tenantId, ar.createdTime, ar.lastModifiedTime, ar.createdBy, ar.lastModifiedBy, ad.barRegistrationNum, ad.barRegistrationDocUrl, ad.designation ";
 
-    private static final String FROM_QUERY = " from eg_adv_registration ar inner join eg_adv_details ad on ar.id = ad.registrationId ";
+    private static final String FROM_QUERY = " from eg_adv_register ar inner join eg_adv_bar_detail ad on ar.id = ad.registrationId ";
 
     private static final String ORDER_QUERY = " order by createdTime DESC";
 

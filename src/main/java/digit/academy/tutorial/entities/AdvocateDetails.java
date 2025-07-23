@@ -19,5 +19,4 @@ public class AdvocateDetails {
     private String barRegistrationNum;
     private String barRegistrationDocUrl;
     private String designation;
-    private AuditDetails auditDetails;
 }
