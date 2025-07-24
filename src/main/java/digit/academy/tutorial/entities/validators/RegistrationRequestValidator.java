@@ -17,7 +17,7 @@ public class RegistrationRequestValidator {
     @Autowired
     private RegistrationApplicationRepo applicationRepository;
 
-    public void duplicateValidation(AdvocateRegistrationApplication application) {
+    public void performDuplicateValidation(AdvocateRegistrationApplication application) {
         boolean duplicateExists = false;
         AdvocateRegistrationApplication existingByPhone = searchForPhone(application);
 

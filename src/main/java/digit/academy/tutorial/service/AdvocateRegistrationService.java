@@ -40,7 +40,7 @@ public class AdvocateRegistrationService {
     private String updateApplicationTopic;
 
     public AdvocateRegistrationApplication processRegistrationApplication(AdvocateRequest request) {
-        validator.applicationExists(request.getApplication());
+        validator.performDuplicateValidation(request.getApplication());
 
         enricher.enrichNewApplication(request);
 

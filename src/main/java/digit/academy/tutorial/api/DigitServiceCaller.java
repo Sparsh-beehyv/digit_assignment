@@ -16,8 +16,8 @@ import java.util.Map;
 @Component
 public class DigitServiceCaller {
 
-    private ObjectMapper mapper;
-    private RestTemplate restTemplate;
+    private final ObjectMapper mapper;
+    private final RestTemplate restTemplate;
 
 
     public Object fetchResult(StringBuilder uri, Object request) {

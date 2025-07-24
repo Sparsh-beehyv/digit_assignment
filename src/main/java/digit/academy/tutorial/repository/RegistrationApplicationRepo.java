@@ -22,6 +22,6 @@ public class RegistrationApplicationRepo {
     public AdvocateRegistrationApplication getRegistrationApplication(AdvocateSearchCriteria criteria) {
         List<Object> preparedStmt = new ArrayList<>();
         String query = RegistrationApplicationQueryBuilder.getApplicationSearchQuery(criteria, preparedStmt);
-        return jdbcTemplate.query(query, rowMapper);
+        return jdbcTemplate.query(query, preparedStmt.toArray(), rowMapper);
     }
 }

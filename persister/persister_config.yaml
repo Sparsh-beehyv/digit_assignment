@@ -7,48 +7,48 @@ serviceMaps:
       isTransaction: true
       queryMaps:
         - query: insert into eg_adv_register (id, tenantId, applicationId, state, district, city, firstName, middleName, lastName, phone, createdBy, lastModifiedBy, createdTime, lastModifiedTime) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);
-          basePath: AdvocateRegistrationApplication.*
+          basePath: $.application
           jsonMaps:
-            - jsonPath: $.AdvocateRegistrationApplication.*.id
+            - jsonPath: $.application.id
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.tenantId
+            - jsonPath: $.application.tenantId
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.applicationId
+            - jsonPath: $.application.applicationId
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.state
+            - jsonPath: $.application.state
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.district
+            - jsonPath: $.application.district
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.city
+            - jsonPath: $.application.city
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.firstName
+            - jsonPath: $.application.firstName
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.middleName
+            - jsonPath: $.application.middleName
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.lastName
+            - jsonPath: $.application.lastName
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.phone
+            - jsonPath: $.application.phone
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.createdBy
+            - jsonPath: $.application.auditDetails.createdBy
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.lastModifiedBy
+            - jsonPath: $.application.auditDetails.lastModifiedBy
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.createdTime
+            - jsonPath: $.application.auditDetails.createdTime
 
-            - jsonPath: $.AdvocateRegistrationApplication.*.lastModifiedTime
+            - jsonPath: $.application.auditDetails.lastModifiedTime
 
-        - query: insert into eg_adv_bar_detail (id, advocateId, barRegistrationNum, barRegistrationDocUrl, designation) values (?,?,?,?,?);
-          basePath: AdvocateDetails.*
+        - query: insert into eg_adv_bar_detail (id, registrationId, barRegistrationNum, barRegistrationDocUrl, designation) values (?,?,?,?,?);
+          basePath: $.application.advocateDetails
           jsonMaps:
-              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.id
+            - jsonPath: $.application.advocateDetails.id
 
-              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.registrationId
+            - jsonPath: $.application.advocateDetails.registrationId
 
-              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.barRegistrationNum
+            - jsonPath: $.application.advocateDetails.barRegistrationNum
 
-              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.barRegistrationDocUrl
+            - jsonPath: $.application.advocateDetails.barRegistrationDocUrl
 
-              - jsonPath: $.AdvocateRegistrationApplication.*.AdvocateDetails.*.designation
+            - jsonPath: $.application.advocateDetails.designation
 
 
     - version: 1.0
@@ -56,11 +56,11 @@ serviceMaps:
       fromTopic: update-adv-application
       isTransaction: true
       queryMaps:
-          - query: update eg_adv_bar_detail set barRegistrationNum = ?, barRegistrationDocUrl = ?, designation = ? where id = ?;
-            basePath: AdvocateDetails.*
-            jsonMaps:
-              - jsonPath: $.AdvocateDetails.*.barRegistrationNum
+        - query: update eg_adv_bar_detail set barRegistrationNum = ?, barRegistrationDocUrl = ?, designation = ? where id = ?;
+          basePath: $.advocateDetails
+          jsonMaps:
+            - jsonPath: $.advocateDetails.barRegistrationNum
 
-              - jsonPath: $.AdvocateDetails.*.barRegistrationDocUrl
+            - jsonPath: $.advocateDetails.barRegistrationDocUrl
 
-              - jsonPath: $.AdvocateDetails.*.designation
+            - jsonPath: $.advocateDetails.designation
